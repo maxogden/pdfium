@@ -22,11 +22,11 @@ script:
   - cd out/release
   - ninja pdfium
   - cd $HOME
-  - tar czf pdfium.tgz pdfium/
+  - tar czf pdfium-linux.tgz pdfium/
 deploy:
   provider: releases
   api_key:
-    - secure: >- XezNkVAzlmC4OhmoID0MWMQJ+qY1fK6Yyb1jBPYGWDq9bUANqgkSvG8WorfwQST8iQmZziizYZsIl4d3LbSHLWcyJopLDGlzstzh+IacMQlH6g/cU6mhTNHGfFbwDKPEH35YOZ49hh8WnaPIkVFpCV3dn/Wtzy/tS1vDYpnBRRvXfYfd+wbqOqMUxyD9rv4HtQyiGu9MgySMAYsXlDVmogBGsbiqWH2ZboWdFPzHDNxxdtGzDEfzTRTSK4qk7RJd0hJIbQmHOzD4hq/u+xaVK65QL9onIH8VFvlLOPOX5kd5NHUKyIaEkEFEPdOEawgmncaihLCLhaZEfDQ8d6hwZDsqt0vM9s2Q1iTTC9Q328d5Wmixefa91GZyy+yR1aKCzyK1KRgHnudonSONy/RCeWAoFzVcoQwxkzzMmbhT8UX5ict2SzKVab2aOeZWwkHCp9S/ql3QXFBX6j3J+WLvAralzqs5LQ39hC8yiIGbvJccxb31Rm8W6ijpk3/KOorqPkr3QY3y++PFZCfIscfq76vGP/WiUVKuV73CVWHSyfH+UxXC/EAHpuIKjpJ9ZIH6v/Bb5kYWx6Nt+Fp+jCJOaD7QZVgRjAHh1nRAmP8dCL2lnnwJeIw+nL3MCWKcVSyELbdMhu9wxmqF+PNrCtyuXl9dIbHK5oo9ZLAxcJ5kQ/E=
-      file: pdfium.tgz
+    - secure: XezNkVAzlmC4OhmoID0MWMQJ+qY1fK6Yyb1jBPYGWDq9bUANqgkSvG8WorfwQST8iQmZziizYZsIl4d3LbSHLWcyJopLDGlzstzh+IacMQlH6g/cU6mhTNHGfFbwDKPEH35YOZ49hh8WnaPIkVFpCV3dn/Wtzy/tS1vDYpnBRRvXfYfd+wbqOqMUxyD9rv4HtQyiGu9MgySMAYsXlDVmogBGsbiqWH2ZboWdFPzHDNxxdtGzDEfzTRTSK4qk7RJd0hJIbQmHOzD4hq/u+xaVK65QL9onIH8VFvlLOPOX5kd5NHUKyIaEkEFEPdOEawgmncaihLCLhaZEfDQ8d6hwZDsqt0vM9s2Q1iTTC9Q328d5Wmixefa91GZyy+yR1aKCzyK1KRgHnudonSONy/RCeWAoFzVcoQwxkzzMmbhT8UX5ict2SzKVab2aOeZWwkHCp9S/ql3QXFBX6j3J+WLvAralzqs5LQ39hC8yiIGbvJccxb31Rm8W6ijpk3/KOorqPkr3QY3y++PFZCfIscfq76vGP/WiUVKuV73CVWHSyfH+UxXC/EAHpuIKjpJ9ZIH6v/Bb5kYWx6Nt+Fp+jCJOaD7QZVgRjAHh1nRAmP8dCL2lnnwJeIw+nL3MCWKcVSyELbdMhu9wxmqF+PNrCtyuXl9dIbHK5oo9ZLAxcJ5kQ/E=
+      file: pdfium-linux.tgz
       skip_cleanup: true
         
