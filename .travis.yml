@@ -3,31 +3,30 @@ os: linux
 compiler: clang
 branches:
   only:
-    - chromium/3396
+  - chromium/3396
 install:
-  - >-
-    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-    $HOME/depot_tools
-  - 'export PATH=$PATH:$HOME/depot_tools/'
-  - 'gclient config https://github.com/sandsmark/pdfium.git --unmanaged'
-  - gclient sync
+- git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git $HOME/depot_tools
+- export PATH=$PATH:$HOME/depot_tools/
+- gclient config https://github.com/sandsmark/pdfium.git --unmanaged
+- gclient sync
 script:
-  - 'export PATH=$PATH:$HOME/depot_tools/'
-  - cd pdfium
-  - pwd
-  - >-
-    gn gen --args="clang_use_default_sample_profile=false is_cfi=false pdf_is_complete_lib=true pdf_bundle_freetype=true pdf_enable_v8=false pdf_enable_xfa=false pdf_use_skia=false use_system_zlib=false use_system_freetype=false pdf_is_standalone=true is_component_build=false is_official_build=true is_debug=false" out/release
-  - cd out/release
-  - ninja pdfium
-  - cd $HOME
-  - ls
-  - tar czf pdfium-linux.tgz build/maxogden/pdfium/pdfium
+- export PATH=$PATH:$HOME/depot_tools/
+- cd pdfium
+- pwd
+- gn gen --args="clang_use_default_sample_profile=false is_cfi=false pdf_is_complete_lib=true
+  pdf_bundle_freetype=true pdf_enable_v8=false pdf_enable_xfa=false pdf_use_skia=false
+  use_system_zlib=false use_system_freetype=false pdf_is_standalone=true is_component_build=false
+  is_official_build=true is_debug=false" out/release
+- cd out/release
+- ninja pdfium
+- cd $HOME
+- ls
+- tar czf pdfium-linux.tgz build/maxogden/pdfium/pdfium
 deploy:
   provider: releases
-  on:
-    branch: chromium/3396
-  file: pdfium-linux.tgz
-  skip_cleanup: true
   api_key:
-    secure: XezNkVAzlmC4OhmoID0MWMQJ+qY1fK6Yyb1jBPYGWDq9bUANqgkSvG8WorfwQST8iQmZziizYZsIl4d3LbSHLWcyJopLDGlzstzh+IacMQlH6g/cU6mhTNHGfFbwDKPEH35YOZ49hh8WnaPIkVFpCV3dn/Wtzy/tS1vDYpnBRRvXfYfd+wbqOqMUxyD9rv4HtQyiGu9MgySMAYsXlDVmogBGsbiqWH2ZboWdFPzHDNxxdtGzDEfzTRTSK4qk7RJd0hJIbQmHOzD4hq/u+xaVK65QL9onIH8VFvlLOPOX5kd5NHUKyIaEkEFEPdOEawgmncaihLCLhaZEfDQ8d6hwZDsqt0vM9s2Q1iTTC9Q328d5Wmixefa91GZyy+yR1aKCzyK1KRgHnudonSONy/RCeWAoFzVcoQwxkzzMmbhT8UX5ict2SzKVab2aOeZWwkHCp9S/ql3QXFBX6j3J+WLvAralzqs5LQ39hC8yiIGbvJccxb31Rm8W6ijpk3/KOorqPkr3QY3y++PFZCfIscfq76vGP/WiUVKuV73CVWHSyfH+UxXC/EAHpuIKjpJ9ZIH6v/Bb5kYWx6Nt+Fp+jCJOaD7QZVgRjAHh1nRAmP8dCL2lnnwJeIw+nL3MCWKcVSyELbdMhu9wxmqF+PNrCtyuXl9dIbHK5oo9ZLAxcJ5kQ/E=
-        
+    secure: rC9CG8XkU51JWM0T+8wF3gbdWAxM2HmANbriGzLBB5brPeLCM8YGUJvJ+ljOWd09RSVfL9sU7PIUzTM2kjfrkpo5ruYaYToxCSXNbeKn8N49ra9SOsLNWBXKFcbKCsEfl7fRtTt4IUvoZt+qrppnF0M4SK8Shrs9xCPWcp7N0UhST37OCKBiiTs+0mmW0/Fj3cXMX7g7Pho3sbBp0LhLs45Kx/Sa1rAu9+9yFu4hfL5TYfB8XYK8u74jHAb+4tWj2PORky/jesLVUFYzmiyHFs26avPi7UbIOLatIB9XwzYv2w+ynsPmTpKJ7xhBjenQJ89SLAG7DVxiWcfwo21ouX7vsCBnd8QhWnaMv22+qgb77ispN+Rd1NQCSqCzOM44mxryQw/MERSuuQtCTZrhxUF5E13xFAEp26R9ZM1EYn0iwDJ1R54uaLlrEBrBrO0N2YbbgsTN7Iq3fDmQZEeCEx2auUv6Haq61xwxP42erpGCVHX00ou8qEFH2Pb47rcXlnKp8rxVPAKYnSnViZ258Up57tYbttVhy1eIy1s+7AXkNMa/DVH77w4KAczeVnKp0MRxOKB/80ybqbSgOsGMLaTu7OrpC7nVBWMgXiuutI4S9KsVmC8vS8vBFSsuDZCUJNwolY20mqVO3m5du+Cy0Uf/A/Z4TuG/PcFFIafjzA4=
+  file: pdfium-linux.tgz
+  on:
+    repo: maxogden/pdfium
+    branch: chromium/3396
