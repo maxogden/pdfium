@@ -16,7 +16,6 @@ script:
   is_official_build=true is_debug=false" out/release
 - cd out/release
 - ninja pdfium
-- cd $HOME
 - tar czf pdfium-linux.tgz build/maxogden/pdfium/pdfium/out/release
 - ls -alh
 deploy:
