@@ -17,8 +17,8 @@ script:
 - cd out/release
 - ninja pdfium
 - cd $HOME
-- ls
 - tar czf pdfium-linux.tgz build/maxogden/pdfium/pdfium
+- ls -alh
 deploy:
   provider: releases
   api_key:
