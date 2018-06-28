@@ -17,7 +17,7 @@ script:
 - cd out/release
 - ninja pdfium
 - cd $HOME
-- tar czf pdfium-linux.tgz build/maxogden/pdfium/pdfium
+- tar czf pdfium-linux.tgz build/maxogden/pdfium/pdfium/out/release
 - ls -alh
 deploy:
   provider: releases
