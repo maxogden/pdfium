@@ -1,5 +1,6 @@
 language: cpp
 os: linux
+compiler: clang
 branches:
   only:
     - chromium/3396
@@ -23,7 +24,7 @@ script:
   - ninja pdfium
   - cd $HOME
   - ls
-  - tar czf pdfium-linux.tgz pdfium/
+  - tar czf pdfium-linux.tgz build/maxogden/pdfium/pdfium
 deploy:
   provider: releases
   api_key:
