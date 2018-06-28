@@ -1,9 +1,6 @@
 language: cpp
 os: linux
 compiler: clang
-branches:
-  only:
-  - chromium/3396
 install:
 - git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git $HOME/depot_tools
 - export PATH=$PATH:$HOME/depot_tools/
